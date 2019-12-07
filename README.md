@@ -95,7 +95,7 @@ you'd be circumventing the intended use:
       pp s.to_h
     end
     
-    # The :free? method determines if a Symbol is avaible for setting.
+    # The :free? method determines if a Symbol is available for setting.
     s.free?(:to_s) #=> false
     s.free?(:d) #=> true
 
