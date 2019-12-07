@@ -15,7 +15,7 @@ module CRStruct
     end
 
     #########################################
-    ### free?, set!, and _get ###
+    ### free?, set!, and get? ###
     # make purposefull access to @h possible,
     # and easier to subclass CRStruct.
     #########################################
@@ -26,7 +26,7 @@ module CRStruct
     def set!(k, v)
       @h[k]=v
     end
-    def _get(k)
+    def get?(k)
       @h[k]
     end
 
@@ -34,7 +34,7 @@ module CRStruct
       if proc.nil?
         case args.length
         when 0
-          return _get(key) if @h.has_key? key
+          return get?(key) if @h.has_key? key
         when 1
           if key=~/^\w+=$/
             k = key[0..-2].to_sym

@@ -80,16 +80,16 @@ you'd be circumventing the intended use:
     s.set!(:c, "C") #=> "C"
     
     # s' internal hash does not have :d
-    if s._get(:d).nil?
+    if s.get?(:d).nil?
       # Output:
       #   s.a is A
       #   s.b is B
       #   s.c is C
       #   s.d is nil
-      puts "s.a is #{s._get(:a)}"
-      puts "s.b is #{s._get(:b)}"
-      puts "s.c is #{s._get(:c)}"
-      puts "s.d is #{s._get(:d)}"
+      puts "s.a is #{s.get?(:a)}"
+      puts "s.b is #{s.get?(:b)}"
+      puts "s.c is #{s.get?(:c)}"
+      puts "s.d is #{s.get?(:d)}"
       # Output:
       #   {:a=>"A", :b=>"B", :c=>"C"}
       pp s.to_h
