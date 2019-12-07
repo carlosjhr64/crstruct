@@ -3,3 +3,6 @@ module CRStruct
   require 'crstruct/open'
   autoload :Registered, 'crstruct/registered'
 end
+
+# Requires:
+#`ruby`
