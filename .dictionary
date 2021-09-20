@@ -1,3 +1,5 @@
+args
+autoload
 carlosjhr
 CarlosJHR
 crstruct
@@ -5,8 +7,12 @@ CRStruct
 github
 https
 MERCHANTABILITY
+NoMethodError
 NONINFRINGEMENT
 OpenStruct
+proc
 rubygems
 sublicense
+sym
+unshift
 www

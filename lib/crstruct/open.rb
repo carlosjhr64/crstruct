@@ -16,7 +16,7 @@ module CRStruct
 
     #########################################
     ### free?, set!, and get? ###
-    # make purposefull access to @h possible,
+    # make purposeful access to @h possible,
     # and easier to subclass CRStruct.
     #########################################
 
