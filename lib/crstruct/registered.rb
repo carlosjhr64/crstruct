@@ -20,4 +20,3 @@ module CRStruct
     end
   end
 end
-

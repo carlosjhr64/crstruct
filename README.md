@@ -1,6 +1,6 @@
 # crstruct
 
-* [VERSION 0.1.191207](https://www.github.com/carlosjhr64/crstruct/releases)
+* [VERSION 0.1.210920](https://www.github.com/carlosjhr64/crstruct/releases)
 * [github](https://www.github.com/carlosjhr64/crstruct)
 * [rubygems](https://rubygems.org/gems/crstruct)
 
@@ -81,7 +81,7 @@ you'd be circumventing the intended use:
 
 (The MIT License)
 
-Copyright (c) 2020 CarlosJHR64
+Copyright (c) 2021 CarlosJHR64
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
