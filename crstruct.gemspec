@@ -16,8 +16,8 @@ Ruby gem for an extremely lite OpenStruct like class with
 attributes that can only be set once, and then read thereafter.
 
 The "CR" in `CRStruct` is for "Create and Read"...
-no "Update"...
-no "Delete".
+No "Update"...
+No "Delete".
 DESCRIPTION
 
   s.summary = <<SUMMARY
@@ -29,8 +29,6 @@ SUMMARY
   s.files = %w(
 README.md
 lib/crstruct.rb
-lib/crstruct/open.rb
-lib/crstruct/registered.rb
   )
 
   s.requirements << 'ruby: ruby 3.1.2p20 (2022-04-12 revision 4491bb740a) [aarch64-linux]'
