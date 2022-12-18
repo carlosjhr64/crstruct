@@ -1,5 +1,5 @@
 module CRStruct
-  VERSION = '0.1.210920'
+  VERSION = '1.0.221218'
   require_relative 'crstruct/open'
   autoload :Registered, 'crstruct/registered'
 end

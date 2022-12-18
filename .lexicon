@@ -1,5 +1,7 @@
 args
 autoload
+blk
+c
 CRStruct
 flatten
 free
@@ -14,13 +16,14 @@ key
 keys
 length
 method_missing
-nil
+n
+NoMethodError
 Open
-proc
+raise
 Registered
 require_relative
 respond_to
-Ruby30
+Ruby31
 set
 Symbol
 to_h

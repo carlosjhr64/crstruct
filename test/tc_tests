@@ -63,4 +63,16 @@ class Tests < Test::Unit::TestCase
     assert_nil s.get?(:f)
     assert_nil s.get?(:h)
   end
+
+  def test_edge_cases
+    s = CRStruct::Open.new
+    assert_raise(NoMethodError){s.wut{'wut'}}
+    assert_raise(NoMethodError){s.wut('wut','wut')}
+    assert_raise(NoMethodError){s.wut!}
+    assert_raise(NoMethodError){s.wut?}
+    assert_raise(NoMethodError){s.wut('wut')}
+    # And nothing wrong with wut...
+    s.wut = 'wut'
+    assert_equal 'wut', s.wut
+  end
 end

@@ -1,6 +1,6 @@
-# crstruct
+# CRStruct
 
-* [VERSION 0.1.210920](https://www.github.com/carlosjhr64/crstruct/releases)
+* [VERSION 1.0.221218](https://www.github.com/carlosjhr64/crstruct/releases)
 * [github](https://www.github.com/carlosjhr64/crstruct)
 * [rubygems](https://rubygems.org/gems/crstruct)
 
@@ -10,8 +10,8 @@ Ruby gem for an extremely lite OpenStruct like class with
 attributes that can only be set once, and then read thereafter.
 
 The "CR" in `CRStruct` is for "Create and Read"...
-no "Update"...
-no "Delete".
+No "Update"...
+No "Delete".
 
 ## INSTALL:
 ```console
@@ -81,7 +81,7 @@ s.free?(:d)    #=> true
 
 (The MIT License)
 
-Copyright (c) 2021 CarlosJHR64
+Copyright (c) 2022 CarlosJHR64
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

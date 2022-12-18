@@ -30,19 +30,18 @@ module CRStruct
       @h[k]
     end
 
-    def method_missing(key, *args, &proc)
-      if proc.nil?
-        case args.length
-        when 0
-          return get?(key) if @h.has_key? key
-        when 1
-          if key=~/^\w+=$/
-            k = key[0..-2].to_sym
-            return set!(k, args[0]) if free?(k)
-          end
-        end
+    def method_missing(key, *args, &blk)
+      super if blk or (n=args.length)>1 or
+               (c=key[-1])=='!' or c=='?' or
+               not (c=='=' or n==0)
+      if c == '='
+        k = key[0..-2].to_sym
+        raise NoMethodError, "can't modify key: :#{k}" unless free?(k)
+        set!(k, args[0])
+      else
+        raise NoMethodError, "key not found: :#{key}" unless @h.has_key? key
+        get?(key)
       end
-      super
     end
   end
 end
