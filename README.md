@@ -30,19 +30,16 @@ s.a #=> "A"
 begin
   # Not allowed to reset s.a...
   s.a = "B" # raises error
-  # as there's no actual s.a=...
-rescue NoMethodError
+rescue FrozenError
   s.b = "B"
 end
 s.a #=> "A"
 s.b #=> "B"
 
-if s.b == "B"
-  begin
-    s.c # There is no s.c so raises
-  rescue NoMethodError
-    s.c = "C"
-  end
+begin
+  s.c # There is no s.c so raises
+rescue NoMethodError
+  s.c = "C"
 end
 s.a #=> "A"
 s.b #=> "B"
@@ -56,26 +53,11 @@ s.b = "B"
 s.c = "C"
 begin
   s.d = "D"
-rescue NoMethodError
+rescue KeyError
   # Can't set :d as it was not registered with s.
 end
 s
-#~> ^#<CRStruct::Registered:0x\h+ @r=\[:a, :b, :c\], @h=\{:a=>"A", :b=>"B", :c=>"C"\}>$
-```
-## MORE
-
-The following can be done, but
-you'd be circumventing the intended use:
-```ruby
-s = CRStruct::Open.new a: "A", b: "B"
-s.get?(:c)      #=> nil
-s.set!(:c, "C")
-s.get?(:c)      #=> "C"
-s.c             #=> "C"
-
-# The :free? method determines if a Symbol is available for setting.
-s.free?(:to_s) #=> false
-s.free?(:d)    #=> true
+#~> ^#<CRStruct::Registered:0x\h+ @keys=\[:a, :b, :c\]>$
 ```
 ## LICENSE:
 

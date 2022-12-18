@@ -7,7 +7,8 @@ class Tests < Test::Unit::TestCase
     s = CRStruct::Open.new
     s.a = "A"
     assert_equal "A", s.a
-    assert_raise(NoMethodError){ s.a = "A" }
+    error = assert_raise(FrozenError){ s.a = "A" }
+    assert_equal "can't modify CRStruct method: :a", error.message
     assert_raise(NoMethodError){ s.b }
   end
 
@@ -15,53 +16,8 @@ class Tests < Test::Unit::TestCase
     s = CRStruct::Registered.new :a, :b, :c
     s.b = "B"
     assert_equal "B", s.b
-    assert_raise(NoMethodError){ s.d = "D" }
-  end
-
-  def test_uncoventional_open
-    s = CRStruct::Open.new a: "A"
-    assert_equal "A", s.a
-    s.b = "B"
-    assert_equal "B", s.b
-    assert_raise(NoMethodError){ s.a = "B" }
-    assert_raise(NoMethodError){ s.c }
-  end
-
-  def test_uncoventional_registered
-    s = CRStruct::Registered.new({a: "A"}, [:b, :c], :d, [:e, :f])
-    assert_equal "A", s.a
-    assert_raise(NoMethodError){ s.b }
-    s.b = "B"
-    assert_equal "B", s.b
-    assert_raise(NoMethodError){ s.d }
-    s.d = "D"
-    assert_equal "D", s.d
-    assert_raise(NoMethodError){ s.f }
-    s.f = "F"
-    assert_equal "F", s.f
-
-    assert_raise(NoMethodError){ s.h = "H" }
-    assert_raise(NoMethodError){ s.h }
-  end
-
-  def test_private_and_auxiliary_methods
-    s = CRStruct::Registered.new({a: "A", b: "B"}, :c, [:d, :e], :f)
-
-    # to_h
-    h = s.to_h
-    assert_equal({a: "A", b: "B"}, h)
-
-    # free?
-    assert s.free? :c     # free to be set
-    refute s.free? :a     # taken, set to "A"
-    refute s.free? :g     # not registered
-    refute s.free? :free? # a method in s
-
-    # set! and get?
-    s.set! :g, "G" # overidding registry
-    assert_equal "G", s.get?(:g)
-    assert_nil s.get?(:f)
-    assert_nil s.get?(:h)
+    error = assert_raise(KeyError){ s.d = "D" }
+    assert_equal "can't add unregistered key: :d", error.message
   end
 
   def test_edge_cases

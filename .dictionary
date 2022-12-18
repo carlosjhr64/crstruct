@@ -1,5 +1,4 @@
 args
-autoload
 blk
 carlosjhr
 CarlosJHR
@@ -7,7 +6,9 @@ com
 crstruct
 CRStruct
 def
+FrozenError
 github
+KeyError
 NoMethodError
 NONINFRINGEMENT
 OpenStruct
@@ -15,5 +16,4 @@ org
 rubygems
 sublicense
 sym
-unshift
 www
