@@ -31,4 +31,17 @@ class Tests < Test::Unit::TestCase
     s.wut = 'wut'
     assert_equal 'wut', s.wut
   end
+
+  def test_more_edges
+    s1 = CRStruct::Open.new
+    s2 = CRStruct::Open.new
+    s1.x = 1.1
+    s1.y = 'Y'
+    s2.x = 2.2
+    s2.z = 'Z'
+    assert_equal 1.1, s1.x
+    assert_equal 'Y', s1.y
+    assert_equal 2.2, s2.x
+    assert_equal 'Z', s2.z
+  end
 end
